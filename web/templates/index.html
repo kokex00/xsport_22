@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xSportBS - Bot Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-shield-alt me-2"></i>xSportBS
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="btn btn-outline-light btn-sm me-1" onclick="switchLanguage('es')" id="lang-es">ES</button>
+                <button class="btn btn-outline-light btn-sm me-1" onclick="switchLanguage('en')" id="lang-en">EN</button>
+                <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('pt')" id="lang-pt">PT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4" data-translate="hero_title">Bot de Gestión para xSportBS</h1>
+                    <p class="lead mb-4" data-translate="hero_description">
+                        Un potente bot multilingüe diseñado para la gestión del servidor y protección. 
+                        Con sistema completo de gestión de partidos y herramientas administrativas.
+                    </p>
+                    <div class="stats-row">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="stat-item">
+                                    <i class="fas fa-server"></i>
+                                    <h3 id="guild-count">-</h3>
+                                    <p data-translate="servers">Servidores</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <h3 id="user-count">-</h3>
+                                    <p data-translate="users">Usuarios</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-item">
+                                    <i class="fas fa-circle text-success"></i>
+                                    <h3 data-translate="online">En Línea</h3>
+                                    <p data-translate="status">Estado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-12">
+                    <h2 class="fw-bold" data-translate="features_title">Características Principales</h2>
+                    <p class="lead text-muted" data-translate="features_description">
+                        Descubre todas las funcionalidades que ofrece xSportBS
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h4 data-translate="feature_matches">Gestión de Partidos</h4>
+                        <p data-translate="feature_matches_desc">
+                            Sistema completo para crear, gestionar y programar partidos con recordatorios automáticos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 data-translate="feature_protection">Protección del Servidor</h4>
+                        <p data-translate="feature_protection_desc">
+                            Herramientas avanzadas de administración y control de canales para mantener tu servidor seguro.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 data-translate="feature_multilingual">Multilingüe</h4>
+                        <p data-translate="feature_multilingual_desc">
+                            Soporte completo para español, inglés y portugués con conversión automática de zonas horarias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section class="commands-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="fw-bold" data-translate="commands_title">Comandos Disponibles</h2>
+                    <p class="lead text-muted" data-translate="commands_description">
+                        Lista completa de comandos slash disponibles
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="command-category">
+                        <h4 class="mb-3">
+                            <i class="fas fa-futbol text-primary me-2"></i>
+                            <span data-translate="match_commands">Comandos de Partidos</span>
+                        </h4>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <code>/creatematch</code>
+                                <span data-translate="cmd_creatematch">Crear un nuevo partido con equipos, fecha, hora e imagen</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/endmatch</code>
+                                <span data-translate="cmd_endmatch">Terminar un partido activo</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/listmatches</code>
+                                <span data-translate="cmd_listmatches">Mostrar todos los partidos activos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="command-category">
+                        <h4 class="mb-3">
+                            <i class="fas fa-shield-alt text-warning me-2"></i>
+                            <span data-translate="admin_commands">Comandos de Administración</span>
+                        </h4>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <code>/setlogchannel</code>
+                                <span data-translate="cmd_setlogchannel">Establecer canal para registros de actividad</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/setchannels</code>
+                                <span data-translate="cmd_setchannels">Establecer canales permitidos para el bot</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/dmuser</code>
+                                <span data-translate="cmd_dmuser">Enviar mensaje directo a un usuario</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/dmrole</code>
+                                <span data-translate="cmd_dmrole">Enviar mensaje directo a un rol</span>
+                            </div>
+                            <div class="command-item">
+                                <code>/customembed</code>
+                                <span data-translate="cmd_customembed">Enviar embed personalizado con imagen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="command-category">
+                        <h4 class="mb-3">
+                            <i class="fas fa-question-circle text-info me-2"></i>
+                            <span data-translate="general_commands">Comandos Generales</span>
+                        </h4>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <code>/ayuda</code>
+                                <span data-translate="cmd_help">Mostrar ayuda y todos los comandos disponibles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12 mb-4">
+                    <h2 class="fw-bold" data-translate="support_title">Soporte Técnico</h2>
+                    <p class="lead text-muted" data-translate="support_description">
+                        Nuestro equipo está aquí para ayudarte
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="support-team">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="support-member">
+                                    <div class="member-info">
+                                        <a href="https://discord.com/users/1215053388404756580" target="_blank" class="member-name">
+                                            kokex
+                                        </a>
+                                        <span class="member-badge blue">Developer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="support-member">
+                                    <div class="member-info">
+                                        <a href="https://discord.com/users/1162196073280966686" target="_blank" class="member-name">
+                                            Wo
+                                        </a>
+                                        <span class="member-badge red">Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="https://discord.gg/5BHpgnG8QP" target="_blank" class="btn btn-primary btn-lg">
+                            <i class="fab fa-discord me-2"></i>
+                            <span data-translate="join_server">Únete al Servidor</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0 text-muted" data-translate="footer_text">
+                xSportBS Bot - Sistema de gestión para servidores de Discord
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

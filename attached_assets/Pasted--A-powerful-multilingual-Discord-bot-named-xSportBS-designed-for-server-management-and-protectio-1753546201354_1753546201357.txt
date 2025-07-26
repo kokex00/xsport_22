@@ -1,0 +1,45 @@
+---A powerful multilingual Discord bot named "xSportBS" designed for server management and protection. Built primarily in English (default language), with full support for Portuguese and Spanish. Developed by kokex for the xSportBS server.
+
+Features include:
+- Slash command system for all functionalities
+- Full embed message support with image attachments and images pulled dynamically from a predefined gallery/album
+- Server protection tools and channel-specific bot presence control
+- A full match management system with:
+  - Slash command to create matches with real-time start time and team listings
+  - Private DM reminders to a target role 10 and 3 minutes before the match
+  - Match end command and a command to list current matches with indexed IDs
+  - Admin-only match creation and ending
+- All DM messages are sent in the language used in the command
+- All match times auto-convert to:
+  - GMT for English
+  - Portugal time for Portuguese
+  - Spanish time zone accordingly
+- Bot replies always include translation buttons to instantly switch the embed content between English, Spanish, and Portuguese
+- Logging system that tracks:
+  - Bot message activity in admin-selected channels
+  - Slash command usage
+  - All bot events
+- Admin commands to:
+  - Set bot visibility in specific channels
+  - DM specific users or roles
+  - Send custom embeds with images (supports dynamic image selection from gallery/album)
+- Web dashboard (Flask + HTML):
+  - Shows how to use the bot
+  - Language switcher at the top (EN, PT, ES)
+  - Support team section with Discord profiles:
+    - kokex (blue) — ID: 1215053388404756580
+    - Wo (red) — ID: 1162196073280966686
+  - Clicking on their name opens Discord profile
+  - Clean layout, no setup button
+  - Commands shown in a dedicated section (not on homepage)
+  - Technical Support: kokex | Wo
+- No game commands — only admin, utility, server, and DM tools
+- Clean slash command hierarchy and modular code
+- All messages are well-formatted and translation-ready
+- Embed responses vary depending on command language input
+- Shows “bot spoke in channel” log in selected log channel
+- Bio of the bot contains: `Made by kokex - xSportBS`
+- Includes a `keep_alive` Flask server to keep the bot running continuously on Replit or similar platforms
+
+Remove Arabic language completely. English is the main language, secondary languages are Portuguese and Spanish.
+---
